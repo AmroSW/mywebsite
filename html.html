@@ -9,6 +9,7 @@
   <body>
     <h3>The message from the parent appears below:</h3>
     <div id="message">Please send some message from the input above.</div>
+    <img onmouseover="sendMessage()" src="https://mt-tech-dev.mt-op.com/maccabi.png" alt=" " width="64" height="64">
 <script>
   window.addEventListener('message', function(event) {
     console.log("Message received from the parent: " + event.data); // Message received from parent
@@ -28,6 +29,6 @@
 	}
     </script>
 
-<div><object onmouseover="sendMessage()" type="image/svg+xml" data="https://mpp.maytronics.com/content/NewSvg/99996610-AR/99996610-AR-00.svg" width="400" height="300"></object> </div>
+<div><object type="image/svg+xml" data="https://mpp.maytronics.com/content/NewSvg/99996610-AR/99996610-AR-00.svg" width="400" height="300"></object> </div>
   </body>
 </html>
