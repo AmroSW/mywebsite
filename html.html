@@ -22,8 +22,12 @@
         var message = document.querySelector("#messageText").value;
         window.parent.postMessage(message, "*");
       });
+	
+	function sendMessage(){
+		window.parent.postMessage('mousOVERRRRRRR!!', "*");
+	}
     </script>
 
-<div><object type="image/svg+xml" data="https://mpp.maytronics.com/content/NewSvg/99996610-AR/99996610-AR-00.svg" width="400" height="300"></object> </div>
+<div><object onmouseover="sendMessage()" type="image/svg+xml" data="https://mpp.maytronics.com/content/NewSvg/99996610-AR/99996610-AR-00.svg" width="400" height="300"></object> </div>
   </body>
 </html>
