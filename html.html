@@ -26,8 +26,33 @@
 	function sendMessage(obj){
 		window.parent.postMessage(JSON.stringify(obj), "*");
 	}
+
+        function handleLoad(){
+           
+            const doc =  this.template.querySelector('object').getSVGDocument();
+            
+            doc.addEventListener('mouseover', e => {
+                    e.preventDefault();
+                    //e.stopPropagation();
+                    //console.log(e.path[1].href.baseVal);
+			window.parent.postMessage(e.path[1].href.baseVal, "*");
+                    
+                });
+    
+                this.addEventListener('updateGTMdataLayer', function(e) {
+                    alert(e.detail);
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({                       
+                    'event': 'create account',
+                    'relevant updates': e.detail
+                });
+            });
+    
+                this.dispatchEvent(new CustomEvent("updateGTMdataLayer", { "detail" : "YES"}));
+    
+        }
     </script>
 
-<div><object onmouseover="sendMessage(this)" type="image/svg+xml" data="https://mpp.maytronics.com/content/NewSvg/99996610-AR/99996610-AR-00.svg" width="400" height="300"></object> </div>
+<div><object onload="handleLoad()" type="image/svg+xml" data="https://mpp.maytronics.com/content/NewSvg/99996610-AR/99996610-AR-00.svg" width="400" height="300"></object> </div>
   </body>
 </html>
