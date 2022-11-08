@@ -29,7 +29,7 @@
 
         function handleLoad(){
            
-            const doc =  this.template.querySelector('object').getSVGDocument();
+            let doc =  document.getElementById('objTest').getSVGDocument();
             
             doc.addEventListener('mouseover', e => {
                     e.preventDefault();
@@ -53,6 +53,6 @@
         }
     </script>
 
-<div><object onload="handleLoad()" type="image/svg+xml" data="https://mpp.maytronics.com/content/NewSvg/99996610-AR/99996610-AR-00.svg" width="400" height="300"></object> </div>
+<div><object id="objTest" onload="handleLoad()" type="image/svg+xml" data="https://mpp.maytronics.com/content/NewSvg/99996610-AR/99996610-AR-00.svg" width="400" height="300"></object> </div>
   </body>
 </html>
