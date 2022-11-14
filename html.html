@@ -19,12 +19,10 @@
         }
 		function sendMessage(e){
            
-            let doc =  document.getElementById('objTest').getSVGDocument();
-			e.preventDefault();
-			window.parent.postMessage(doc.path[1].href.baseVal, "*");
-            
+		    e.preventDefault();
+			window.parent.postMessage(e.path[1].href.baseVal, "*");
         }
     </script>
-	<div onclick="sendMessage(this)"><object id="objTest" onload="handleLoad()" type="image/svg+xml" data="https://amrosw.github.io/mywebsite/99996610-FR/99996610-FR/99996610-FR-00.svg"></object></div>
+	<div><object id="objTest" onclick="sendMessage(this)" onload="handleLoad()" type="image/svg+xml" data="https://amrosw.github.io/mywebsite/99996610-FR/99996610-FR/99996610-FR-00.svg"></object></div>
   </body>
 </html>
