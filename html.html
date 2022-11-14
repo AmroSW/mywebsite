@@ -16,13 +16,19 @@
 				e.preventDefault();
 				window.parent.postMessage(e.path[1].href.baseVal, "*");
             });
-        }
-		function sendMessage(e){
-           
-		    e.preventDefault();
-			window.parent.postMessage(e.path[1].href.baseVal, "*");
+	        doc.addEventListener('click', e => {
+				e.preventDefault();
+				window.parent.postMessage(e.path[1].href.baseVal, "*");
+            });
+			
+			this.addEventListener('updateGTMdataLayer', function(e) {
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({                       
+                'event': 'create account',
+                'relevant updates': e.detail
+            });
         }
     </script>
-	<div><object id="objTest" onclick="sendMessage(this)" onload="handleLoad()" type="image/svg+xml" data="https://amrosw.github.io/mywebsite/99996610-FR/99996610-FR/99996610-FR-00.svg"></object></div>
+	<div><object id="objTest" onload="handleLoad()" type="image/svg+xml" data="https://amrosw.github.io/mywebsite/99996610-FR/99996610-FR/99996610-FR-00.svg"></object></div>
   </body>
 </html>
