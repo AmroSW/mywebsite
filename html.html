@@ -14,13 +14,13 @@
             
             doc.addEventListener('mouseover', e => {
 				e.preventDefault();
-				window.parent.postMessage(e.path[1].href.baseVal, "*");
+				window.parent.postMessage('mouseover:'+e.path[1].href.baseVal, "*");
             });
 	        doc.addEventListener('click', e => {
-				window.parent.postMessage(e.path[1].href.baseVal, "*");
+				window.parent.postMessage('click:'+e.path[1].href.baseVal, "*");
             });
         }
     </script>
-	<div><object id="objTest" onload="handleLoad()" type="image/svg+xml" data="https://amrosw.github.io/mywebsite/99996610-FR/99996610-FR/99996610-FR-00.svg" height="500" width="500"></object></div>
+	<object id="objTest" onload="handleLoad()" type="image/svg+xml" data="https://amrosw.github.io/mywebsite/99996610-FR/99996610-FR/99996610-FR-00.svg" height="500" width="500"></object>
   </body>
 </html>
