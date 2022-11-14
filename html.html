@@ -7,53 +7,21 @@
     <title>Document</title>
   </head>
   <body>
-<script>
-  window.addEventListener('message', function(event) {
-  window.location.replace('https://google.com');
-    console.log("Message received from the parent: " + event.data); // Message received from parent
-  });
-</script>
-    <input style="margin-top: 1em;" type="text" id="messageText" />
-    <button id="sendMessage">Send Message to Parent</button>
-    <script>
-      var button = document.querySelector("#sendMessage");
-      button.addEventListener("click", function () {
-        var message = document.querySelector("#messageText").value;
-        window.parent.postMessage(message, "*");
-      });
-	
-	function sendMessage(obj){
-		window.parent.postMessage(JSON.stringify(obj), "*");
-	}
-
+	<script>
         function handleLoad(){
            
             let doc =  document.getElementById('objTest').getSVGDocument();
-
-			console.log('doc:', doc);
             
             doc.addEventListener('mouseover', e => {
-                    e.preventDefault();
-                    //e.stopPropagation();
-                    //console.log(e.path[1].href.baseVal);
-			window.parent.postMessage(e.path[1].href.baseVal, "*");
-                    
-                });
-    
-                this.addEventListener('updateGTMdataLayer', function(e) {
-                    alert(e.detail);
-                window.dataLayer = window.dataLayer || [];
-                window.dataLayer.push({                       
-                    'event': 'create account',
-                    'relevant updates': e.detail
-                });
+				e.preventDefault();
+				window.parent.postMessage(e.path[1].href.baseVal, "*");
             });
-    
-                this.dispatchEvent(new CustomEvent("updateGTMdataLayer", { "detail" : "YES"}));
-    
+			doc.addEventListener('click', e => {
+				e.preventDefault();
+				window.parent.postMessage(e.path[1].href.baseVal, "*");
+            });
         }
     </script>
-
-<div><object id="objTest" onload="handleLoad()" type="image/svg+xml" data="https://amrosw.github.io/mywebsite/99996610-FR/99996610-FR/99996610-FR-00.svg" width="400" height="300"></object> </div>
+	<div><object id="objTest" onload="handleLoad()" type="image/svg+xml" data="https://amrosw.github.io/mywebsite/99996610-FR/99996610-FR/99996610-FR-00.svg" width="400" height="300"></object></div>
   </body>
 </html>
