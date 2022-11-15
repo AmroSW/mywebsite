@@ -15,7 +15,7 @@
             let url = window.location.search.substring(1); //get rid of "?" in querystring
 			let pArr = url.split('='); //split key and value
 			console.log('url:', pArr[1]);
-			//temp.setAttribute('data', pArr[1]);
+			temp.setAttribute('data', pArr[1]);
             doc.addEventListener('mouseover', e => {
 				e.preventDefault();
 				window.parent.postMessage('mouseover:'+e.path[1].href.baseVal, "*");
