@@ -28,10 +28,14 @@
 			}
 			return 1;
 		}
-		window.addEventListener('hashchange', function(){
-			const log = getParamValue();
-			alert(log);
-		});
+		if (window.history) {
+			var myOldUrl = window.location.href;
+			window.addEventListener('hashchange', function(){
+				const log = getParamValue();
+				alert(log);
+				window.history.pushState({}, null, myOldUrl);
+			});
+		}
     </script>
 	<object id="objTest" onload="handleLoad()" type="image/svg+xml" data="https://mpp-images.s3.eu-central-1.amazonaws.com/RobotSVG/99996610-US/00.svg" height="500" width="500"></object>
   </body>
