@@ -11,7 +11,7 @@
         function handleLoad(){
            
 			let temp = document.getElementById('objTest');
-            //let doc =  document.getElementById('objTest').getSVGDocument();
+            let doc =  document.getElementById('objTest').getSVGDocument();
             let url = window.location.search.substring(1); //get rid of "?" in querystring
 			let pArr = url.split('='); //split key and value
 			console.log('url:', pArr[1]);
@@ -19,11 +19,11 @@
 			if(pArr[1] != temp.getAttribute('data')){
 				temp.setAttribute('data', pArr[1]);
 			}
-            temp.addEventListener('mouseover', e => {
+            doc.addEventListener('mouseover', e => {
 				e.preventDefault();
 				window.parent.postMessage('mouseover:'+e.path[1].href.baseVal, "*");
             });
-	        temp.addEventListener('click', e => {
+	        doc.addEventListener('click', e => {
 				window.parent.postMessage('click:'+e.path[1].href.baseVal, "*");
             });
         }
