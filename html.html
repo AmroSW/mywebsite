@@ -10,8 +10,13 @@
 	<script>
         function handleLoad(){
            
+		   
             let doc =  document.getElementById('objTest').getSVGDocument();
-            
+            let url = window.location.search.substring(1); //get rid of "?" in querystring
+			let pArr = qArray[i].split('='); //split key and value
+			if (pArr[0] == 'imgURL') {
+			console.log('url:', pArr[1]);
+			doc.attr('data', pArr[1]);
             doc.addEventListener('mouseover', e => {
 				e.preventDefault();
 				window.parent.postMessage('mouseover:'+e.path[1].href.baseVal, "*");
@@ -24,12 +29,13 @@
 			let url = window.location.search.substring(1); //get rid of "?" in querystring
 			let pArr = qArray[i].split('='); //split key and value
 			if (pArr[0] == 'imgURL') {
+			console.log('url:', pArr[1]);
 				//document.getElementById('objTest').attr('data', pArr[1]);
 				return pArr[1];
 			}
 			return null;
 		}
     </script>
-	<object id="objTest" onload="handleLoad()" type="image/svg+xml" data="getParamValue()" height="500" width="500"></object>
+	<object id="objTest" onload="handleLoad()" type="image/svg+xml" data="" height="500" width="500"></object>
   </body>
 </html>
