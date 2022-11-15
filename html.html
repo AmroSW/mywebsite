@@ -16,7 +16,9 @@
 			let pArr = url.split('='); //split key and value
 			console.log('url:', pArr[1]);
 			console.log('oldURL:', temp.getAttribute('data'));
-			//temp.setAttribute('data', pArr[1]);
+			if(pArr[1] != temp.getAttribute('data')){
+				temp.setAttribute('data', pArr[1]);
+			}
             doc.addEventListener('mouseover', e => {
 				e.preventDefault();
 				window.parent.postMessage('mouseover:'+e.path[1].href.baseVal, "*");
