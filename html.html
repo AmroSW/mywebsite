@@ -11,7 +11,7 @@
         function handleLoad(){
            
 			let temp = document.getElementById('objTest');
-            let doc =  document.getElementById('objTest').getSVGDocument();
+            //let doc =  document.getElementById('objTest').getSVGDocument();
             let url = window.location.search.substring(1); //get rid of "?" in querystring
 			let pArr = url.split('='); //split key and value
 			console.log('url:', pArr[1]);
@@ -19,25 +19,15 @@
 			if(pArr[1] != temp.getAttribute('data')){
 				temp.setAttribute('data', pArr[1]);
 			}
-            doc.addEventListener('mouseover', e => {
+            temp.addEventListener('mouseover', e => {
 				e.preventDefault();
 				window.parent.postMessage('mouseover:'+e.path[1].href.baseVal, "*");
             });
-	        doc.addEventListener('click', e => {
+	        temp.addEventListener('click', e => {
 				window.parent.postMessage('click:'+e.path[1].href.baseVal, "*");
             });
         }
-		function getParamValue(){
-			let url = window.location.search.substring(1); //get rid of "?" in querystring
-			let pArr = qArray[i].split('='); //split key and value
-			if (pArr[0] == 'imgURL') {
-			console.log('url:', pArr[1]);
-				//document.getElementById('objTest').attr('data', pArr[1]);
-				return pArr[1];
-			}
-			return null;
-		}
     </script>
-	<object id="objTest" onload="handleLoad()" type="image/svg+xml" data="https://mpp-images.s3.eu-central-1.amazonaws.com/RobotSVG/99996610-US/00.svg" height="500" width="500"></object>
+	<object id="objTest" onload="handleLoad()" type="image/svg+xml" data="" height="500" width="500"></object>
   </body>
 </html>
