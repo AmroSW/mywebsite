@@ -20,7 +20,19 @@
 				window.parent.postMessage('click:'+e.path[1].href.baseVal, "*");
             });
         }
+		function getParamValue(){
+			let url = window.location.search.substring(1); //get rid of "?" in querystring
+			let pArr = qArray[i].split('='); //split key and value
+			if (pArr[0] == 'imgURL') {
+				document.getElementById('objTest').attr('data', pArr[1]);
+			}
+			return 1;
+		}
+		window.addEventListener('hashchange', function(){
+			const log = getParamValue();
+			alert(log);
+		});
     </script>
-	<object id="objTest" onload="handleLoad()" type="image/svg+xml" data="https://amrosw.github.io/mywebsite/99996610-FR/99996610-FR/99996610-FR-00.svg" height="500" width="500"></object>
+	<object id="objTest" onload="handleLoad()" type="image/svg+xml" data="https://mpp-images.s3.eu-central-1.amazonaws.com/RobotSVG/99996610-US/00.svg" height="500" width="500"></object>
   </body>
 </html>
