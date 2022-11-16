@@ -22,6 +22,7 @@
             doc.addEventListener('mouseover', e => {
 				e.preventDefault();
 				window.parent.postMessage('mouseover:'+e.path[1].href.baseVal, "*");
+                      window.parent.postMessage('mouseover:'+e.path[1].href, "*");
             });
 	        doc.addEventListener('click', e => {
 				window.parent.postMessage('click:'+e.path[1].href.baseVal, "*");
