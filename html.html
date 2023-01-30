@@ -21,7 +21,7 @@
 			}
             temp.addEventListener('mouseover', e => {
 				e.preventDefault();
-				window.parent.postMessage('mouseover:'+e.path[1].href.baseVal, "*");
+				window.parent.postMessage('mouseover:'+e.path, "*");
                       window.parent.postMessage('mouseover:'+ JSON.stringify(e), "*");
             });
 	        temp.addEventListener('click', e => {
