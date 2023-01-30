@@ -21,7 +21,7 @@
 			}
             doc.addEventListener('mouseover', e => {
 				e.preventDefault();
-		    console.log('pasta:', e.currentTarget);
+		    console.log('pasta:', e.srcElement.parentElement.href.baseVal);
 				//window.parent.postMessage('mouseover:'+e.path, "*");
                       //window.parent.postMessage('mouseover:'+ JSON.stringify(e), "*");
             });
