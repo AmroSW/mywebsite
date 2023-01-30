@@ -12,20 +12,20 @@
            
 			let temp = document.getElementById('objTest');
 		console.log('temp:', temp);
-            let doc =  document.getElementById('objTest').contentDocument.svg;
+            let doc =  document.getElementById('objTest').contentDocument;
 		console.log('doc:', doc);
             let url = window.location.search.substring(1); //get rid of "?" in querystring
 			let pArr = url.split('='); //split key and value
 			if(pArr[1] != temp.getAttribute('data')){
 				temp.setAttribute('data', pArr[1]);
 			}
-            temp.addEventListener('mouseover', e => {
+            doc.addEventListener('mouseover', e => {
 				e.preventDefault();
 		    console.log('pasta:', e.path[1].href.baseVal);
 				//window.parent.postMessage('mouseover:'+e.path, "*");
                       //window.parent.postMessage('mouseover:'+ JSON.stringify(e), "*");
             });
-	        temp.addEventListener('click', e => {
+	        doc.addEventListener('click', e => {
 				window.parent.postMessage('click:'+e.path[1].href.baseVal, "*");
             });
         }
